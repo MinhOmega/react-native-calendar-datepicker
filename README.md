@@ -80,10 +80,13 @@ Below is the list of properties that can be used for styling. For a concrete exa
 | dayHeaderText | Text.propTypes.style | Styling the text of day names
 | dayRowView | View.propTypes.style | Styling each  row view of days
 | dayView | View.propTypes.style | View wrapper of each day
+| dayViewDisabled | View.propTypes.style | View wrapper of unavailable day
 | dayText | Text.propTypes.style | Styling the text of each day number
 | dayTodayText | Text.propTypes.style | Highlighting today in the calendar
 | daySelectedText | Text.propTypes.style | Highlighting the selected day in the calendar
 | dayDisabledText | Text.propTypes.style | Styling unavailable dates in the calendar
+| monthView | View.propTypes.style | Styling the TouchableHighlight for each mouth in the month selector
+| monthViewDisabled | View.propTypes.style | Styling for unavailable month in the month selector
 | monthText | Text.propTypes.style | Styling the text for each month in the month selector
 | monthDisabledText | Text.propTypes.style | Styling unavailable months
 | monthSelectedText | Text.propTypes.style | Styling selected month

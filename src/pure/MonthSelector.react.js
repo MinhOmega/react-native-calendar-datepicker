@@ -29,6 +29,8 @@ type Props = {
   minDate: Moment,
   maxDate: Moment,
   // Styling properties.
+  monthView: ViewPropTypes.style,
+  monthViewDisabled: ViewPropTypes.style,
   monthText?: Text.propTypes.style,
   monthDisabledText?: Text.propTypes.style,
   selectedText?: Text.propTypes.style,
@@ -90,7 +92,7 @@ export default class MonthSelector extends Component {
             {_.map(group, (month, j) => (
               <TouchableHighlight
                 key={j}
-                style={{ flexGrow: 1 }}
+                style={[styles.monthView, this.props.monthView, !month.valid ? this.props.monthViewDisabled : null,]}
                 activeOpacity={1}
                 underlayColor="transparent"
                 onPress={() => month.valid && this._onFocus(month.index)}
@@ -102,7 +104,7 @@ export default class MonthSelector extends Component {
                     month.valid ? null : styles.disabledText,
                     month.valid ? null : this.props.monthDisabledText,
                     month.index ===
-                    (this.props.selected && this.props.selected.month())
+                    (this.props.selected && this.props.selected?.month())
                       ? this.props.selectedText
                       : null,
                   ]}
@@ -131,6 +133,9 @@ const styles = StyleSheet.create({
   disabledText: {
     borderColor: "grey",
     color: "grey",
+  },
+  monthView: {
+    flexGrow: 1,
   },
   monthText: {
     borderRadius: 5,

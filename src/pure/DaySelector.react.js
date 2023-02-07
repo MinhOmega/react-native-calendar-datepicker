@@ -237,7 +237,7 @@ export default class DaySelector extends Component {
                     this.props.dayView,
                     day.selected ? this.props.daySelectedView : null,
                     day.valid ? null : styles.dayViewDisabled,
-                    day.valid && this.props.dayViewDisabled
+                    !day.valid && this.props.dayViewDisabled && !!day.date
                       ? this.props.dayViewDisabled
                       : null,
                   ]}
@@ -299,7 +299,7 @@ const styles = StyleSheet.create({
   },
   dayViewDisabled: {
     borderRadius: 9,
-    backgroundColor: "gray",
+    backgroundColor: "transparent",
   },
   dayText: {
     flexGrow: 1,
