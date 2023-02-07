@@ -78,6 +78,7 @@ export default class MonthSelector extends Component {
   };
 
   render() {
+    console.log('this.state.months', this.props.monthViewDisabled);
     return (
       <View
         style={[
@@ -92,7 +93,7 @@ export default class MonthSelector extends Component {
             {_.map(group, (month, j) => (
               <TouchableHighlight
                 key={j}
-                style={[styles.monthView, this.props.monthView, !month.valid ? this.props.monthViewDisabled : null,]}
+                style={[styles.monthView, this.props.monthView ? this.props.monthView : null, !month.valid && this.props.monthViewDisabled ? this.props.monthViewDisabled : null]}
                 activeOpacity={1}
                 underlayColor="transparent"
                 onPress={() => month.valid && this._onFocus(month.index)}

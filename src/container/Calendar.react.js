@@ -69,6 +69,8 @@ type Props = {
   daySelectedText?: Text.propTypes.style,
   dayDisabledText?: Text.propTypes.style,
   // Styling properties for selecting the month.
+  monthView: ViewPropTypes.style,
+  monthViewDisabled: ViewPropTypes.style,
   monthText?: Text.propTypes.style,
   monthDisabledText?: Text.propTypes.style,
   monthSelectedText?: Text.propTypes.style,
@@ -263,6 +265,8 @@ export default class Calendar extends Component {
               maxDate={this.props.maxDate}
               // Styling properties
               monthText={this.props.monthText}
+              monthView={this.props.monthView}
+              monthViewDisabled={this.props.monthViewDisabled}
               monthDisabledText={this.props.monthDisabledText}
               selectedText={this.props.monthSelectedText}
             />
