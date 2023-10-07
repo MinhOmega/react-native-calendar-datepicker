@@ -5,8 +5,7 @@
 
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import Slider from "@react-native-community/slider";
+import { View, Text, StyleSheet, Slider } from "react-native";
 import ViewPropTypes from "../util/ViewPropTypes";
 
 // Component specific libraries.
@@ -26,6 +25,7 @@ type Props = {
   maximumTrackTintColor?: string,
   yearSlider?: Slider.propTypes.style,
   yearText?: Text.propTypes.style,
+  YearSelectorComponent?: React.JSX.Element,
 };
 type State = {
   year: Number,
@@ -50,6 +50,8 @@ export default class YearSelector extends Component {
   };
 
   render() {
+    const { YearSelectorComponent } = this.props;
+    const Component = YearSelectorComponent ? YearSelectorComponent : Slider;
     return (
       <View
         style={[
@@ -60,7 +62,7 @@ export default class YearSelector extends Component {
           this.props.style,
         ]}
       >
-        <Slider
+        <Component
           minimumValue={this.props.minDate.year()}
           maximumValue={this.props.maxDate.year()}
           // TODO: Add a property for this.

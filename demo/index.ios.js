@@ -10,7 +10,7 @@ import {
   Text,
   View
 } from 'react-native';
-import Calendar from 'react-native-calendar-datepicker';
+import Calendar from '../index';
 import Moment from 'moment';
 
 type State = {

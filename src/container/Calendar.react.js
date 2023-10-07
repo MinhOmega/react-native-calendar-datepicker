@@ -79,6 +79,8 @@ type Props = {
   yearMaxTintColor?: string,
   yearSlider?: Slider.propTypes.style,
   yearText?: Text.propTypes.style,
+  YearSelectorComponent?: React.JSX.Element,
+  disableYearSelector?: boolean
 };
 type State = {
   stage: Stage,
@@ -118,6 +120,9 @@ export default class Calendar extends Component {
       this.setState({ stage: MONTH_SELECTOR });
     }
     if (this.state.stage === MONTH_SELECTOR) {
+      if(this.props.disableYearSelector){
+        return;
+      }
       this.setState({ stage: YEAR_SELECTOR });
     }
     LayoutAnimation.easeInEaseOut();
@@ -270,7 +275,7 @@ export default class Calendar extends Component {
               monthDisabledText={this.props.monthDisabledText}
               selectedText={this.props.monthSelectedText}
             />
-          ) : this.state.stage === YEAR_SELECTOR ? (
+          ) : this.state.stage === YEAR_SELECTOR && this.props.disableYearSelector ? (
             <YearSelector
               focus={this.state.focus}
               onFocus={this._changeFocus}
@@ -281,6 +286,7 @@ export default class Calendar extends Component {
               maximumTrackTintColor={this.props.yearMaxTintColor}
               yearSlider={this.props.yearSlider}
               yearText={this.props.yearText}
+              YearSelectorComponent={this.props.YearSelectorComponent}
             />
           ) : null}
         </View>
