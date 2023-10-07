@@ -5,7 +5,8 @@
 
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { Slider, View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import Slider from "@react-native-community/slider";
 import ViewPropTypes from "../util/ViewPropTypes";
 
 // Component specific libraries.
