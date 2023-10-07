@@ -78,7 +78,6 @@ export default class MonthSelector extends Component {
   };
 
   render() {
-    console.log('this.state.months', this.props.monthViewDisabled);
     return (
       <View
         style={[
